@@ -1,0 +1,73 @@
+{% extends "base.html" %} 
+
+{% block title %}Sign-up{% endblock %} 
+
+
+{% block content%}
+    
+<!--SignUP-->
+<div class="container sigup-container shadow-lg p-3 mb-5 bg-body rounded"  >
+    
+    <form class="form-signup" method="POST">
+
+        <h2>SIGN UP</h2>
+
+        <div class="mb-3">
+            <label class="form-label">Full Name</label>
+            <input 
+            type="text" 
+            class="form-control" 
+            id="fullname" 
+            name="fullname"
+            placeholder="Ex. John Doe"
+            required>
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label">Email Address</label>
+            <input 
+            type="email" 
+            class="form-control" 
+            id="email" 
+            name="email"
+            placeholder="Ex. johndoe@example.com"
+            required>
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label">Password</label>
+            <input 
+            type="password" 
+            class="form-control" 
+            id="password" 
+            name="password"
+            placeholder=""
+            required>
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label">Re-Enter Password</label>
+            <input 
+            type="password" 
+            class="form-control" 
+            id="cpassword" 
+            name="cpassword"
+            placeholder=""
+            required>
+        </div>
+
+        <br>
+
+        <div class="mb-3 text-center">
+            <input type="submit" class="btn btn-primary" value="Submit">
+        </div>
+
+        <div class="mb-3 text-center">
+            <label class="form-label">Have Account? <a href="#">Login</a> </label>
+        </div>
+
+    </form>
+</div>    
+
+
+{% endblock %}
