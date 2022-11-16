@@ -17,9 +17,12 @@ def login():
         user = User.query.filter_by(email=email).first()
         if user:
             if check_password_hash(user.password, password):
+                
+                    
                 flash('Logged in successfully!', category='success')
                 login_user(user, remember=remember)
                 return redirect(url_for('views.admin'))
+    
             else:
                 flash('Incorrect password, try again.', category='error')
         else:

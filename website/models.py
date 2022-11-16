@@ -8,41 +8,26 @@ class User(db.Model, UserMixin):
     fullname = db.Column(db.String(150))
     email = db.Column(db.String(150), unique=True)
     password = db.Column(db.String(80))
-
+    is_admin = db.Column(db.Boolean, default=False)
+    join_at = db.Column(db.DateTime(timezone=True), default=db.func.now())
     
     
-class Admin(db.Model, UserMixin):
-    id = db.Column(db.Integer, primary_key=True, autoincrement=True)
-    fullname = db.Column(db.String(150))
-    email = db.Column(db.String(150), unique=True)
-    password = db.Column(db.String(80))
 
+        
+    
+    
 
-
-
-#----------Product Table-----------
 class Product(db.Model):
     id = db.Column(db.Integer, primary_key=True)
-    name = db.Column(db.String(150))
-    price = db.Column(db.Float)
-    description = db.Column(db.String(3200))
-    image = db.Column(db.String(255))
-    category = db.Column(db.String(150))
-    stock = db.Column(db.Integer)
-    rating = db.Column(db.Float)
-    timestamp = db.Column(db.DateTime(timezone=True), default=db.func.now())
-    owner = db.Column(db.Integer, db.ForeignKey('user.id'))
-    
-#----------Item Table-----------
-class Item(db.Model):
-    id = db.Column(db.Integer, primary_key=True)
-    name = db.Column(db.String(150))
-    price = db.Column(db.Float)
-    description = db.Column(db.String(3200))
-    image = db.Column(db.String(255))
-    category = db.Column(db.String(150))
-    stock = db.Column(db.Integer)
-    rating = db.Column(db.Float)
-    timestamp = db.Column(db.DateTime(timezone=True), default=db.func.now())
-
+    product_name = db.Column(db.String(150))
+    product_size = db.Column(db.String(500))
+    product_description = db.Column(db.String(3000))
+    image1 = db.Column(db.String(1000))
+    image2 = db.Column(db.String(1000))
+    product_color = db.Column(db.String(2000))
+    product_price = db.Column(db.Integer)
+    product_quantity = db.Column(db.Float)
+    image3 = db.Column(db.String(1000))
+    image4 = db.Column(db.String(1000))
+    date_added = db.Column(db.DateTime(timezone=True), default=db.func.now())
 

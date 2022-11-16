@@ -5,14 +5,17 @@
     box-sizing: border-box;
 }
 
-/*Body*/
+/*----------Body----------*/
 body {
     font-family: 'Poppins', sans-serif;
 }
-/*-------------------------------------------*/
+/*----------Body----------*/
 
 
-/*Header*/
+
+
+
+/*----------Header----------*/
 h1 {
     font-size: 2.5rem;
     font-weight: 700;
@@ -42,244 +45,9 @@ h5 {
 h6 {
     color: #d8d8d8;
 }
-/*-------------------------------------------*/
+/*----------Header----------*/
 
-
-/*BUTTON*/
-button {
-    font-size:  0.8rem;
-    font-weight: 700;
-    outline: none;
-    border: none;
-    background-color: #1d1d1d;
-    color: aliceblue;
-    padding: 13px 30px;
-    text-transform: uppercase;
-    cursor: pointer;
-    transition: 0.3s ease;
-}
-
-button:hover{
-    background: #3a3833;
-}
-/*-------------------------------------------*/
-
-
-/*Navigation Bar*/
-.navbar {
-    font-size: 20px;
-    top: 0;
-    left: 0;
-    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
-}
-
-.navbar-light .navbar-nav .nav-link{
-    padding: 0 20px;
-    color: black;
-    transition: 0.3s ease;
-}
-
-.navbar i{
-    font-size: 1.2rem;
-    padding: 0 7px;
-    cursor: pointer;
-    transition: 0.3s ease;
-}
-
-.navbar-light .navbar-nav .nav-link:hover,
-.navbar i:hover,
-.navbar-light .navbar-nav .nav-link.active,
-.navbar i.active{
-    color: coral;
-}
-
-/*----------Home_section----------*/
-
-#home span{
-    color: coral;
-}
-
-#home{
-    background-image: url("image/logo/background.png");
-    width: 100%;
-    height: 110vh;
-    background-size: cover;
-    background-position: top center;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: flex-start;
-}
-
-
-
-/*----------Mobile Nav----------*/
-#bar{
-    font-size: 1.5rem;
-    padding: 7px;
-    cursor: pointer;
-    font-weight: 500;
-    transition: 0.3s ease;
-}
-
-#bar:hover,
-#bar.active {
-    color: #fff;
-}
-
-.navbar-light .navbar-toggler{
-    outline: none;
-    border: none;
-}
-
-@media only screen and (max-width: 991px){
-    body > nav > div > button:hover,
-    body > nav > div > button:focus{
-        background-color: #fb774b;
-    }
-
-    body > nav > div > button:hover #bar,
-    body > nav > div > button:focus #bar{
-        background-color: #fb774b;
-    }
-
-    #navbarSupportedContent>ul{
-        margin: 1rem;
-        justify-content: flex-end;
-        align-items: flex-end;
-        text-align: right;
-    }
-
-    #navbarSupportedContent> ul > li:nth-child(n) > a{
-        padding: 10px 0;
-    }
-
-}
-
-/*----------Showcase----------*/
-#showcase .one img{
-    width: 100%;
-    height: 100%;
-    background-position: center center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    position: relative;
-}
-
-#showcase .one .details{
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    top: 0;
-    left: 0;
-    transition: 0.3s ease;
-}
-
-#showcase .one:hover .details{
-    cursor: pointer;
-    background-color: rgba(245, 178, 178, 0.7);
-}
-
-#showcase .one .details button{
-    display: inline-block;
-    font-size: 14px;
-    font-weight: 500;
-    color: #2a2a2a;
-    background: none;
-    text-transform: uppercase;
-    border-bottom: 1px solid #2a2a2a;
-    padding: 2.5px;
-    transform: translateY(50px);
-    transition: 0.3s ease;
-}
-
-#showcase .one .details button:hover {
-    color: red;
-    border-bottom: 1px solid #000;
-}
-
-#showcase .one:nth-child(1) .details{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: start;
-}
-#showcase .one:nth-child(2) .details{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: start;
-}
-#showcase .one:nth-child(3) .details{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: start;
-}
-
-.product{
-    cursor: pointer;
-    margin-bottom: 2rem;
-}
-
-.product img{
-    transition: 0.3s all;
-}
-
-.product:hover img{
-    opacity: 0.8;
-}
-
-.product .buy-button{
-    background: #fb774b;
-    transform: translateY(20px);
-    opacity: 0;
-    transition: 0.3s all;
-}
-
-.product:hover .buy-button{
-    transform: translateY(0);
-    opacity: 1;
-}
-
-.star {
-    padding: 10px 0;
-}
-
-.star i{
-    font-size: 0.8rem;
-    color:  goldenrod;
-}
-
-/*----------Banner Section----------*/
-
-#banner {
-    background-image: url("image/banner/banner1.png");
-    width: 100%;
-    height: 60vh;
-    background-size: cover;
-    background-position: top 60px center;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: flex-start;
-}
-
-#banner h1{
-    color: #d8d8d8;
-}
-#banner h4{
-    color: #d8d8d8;
-}
-
-#banner button{
-    background-color: #fb774b;
-    border-radius: 5%;
-}
-
-/*----------Footer Section----------*/
+/*----------Footer----------*/
 footer{
     background-color: #222222;
 }
@@ -324,9 +92,188 @@ footer .copyright .a .p{
     color: #999;
     text-align: center;
 }
+/*----------Footer----------*/
+
+/*----------Button----------*/
+button {
+    font-size:  0.8rem;
+    font-weight: 700;
+    outline: none;
+    border: none;
+    background-color: #1d1d1d;
+    color: aliceblue;
+    padding: 13px 30px;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+button:hover{
+    background: #3a3833;
+}
+/*----------Button----------*/
+
+
+/*----------NavigationBar----------*/
+.navbar {
+    font-size: 20px;
+    top: 0;
+    left: 0;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+}
+
+.navbar-light .navbar-nav .nav-link{
+    padding: 0 20px;
+    color: black;
+    transition: 0.3s ease;
+}
+
+.navbar i{
+    font-size: 1.2rem;
+    padding: 0 7px;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+.navbar-light .navbar-nav .nav-link:hover,
+.navbar i:hover,
+.navbar-light .navbar-nav .nav-link.active,
+.navbar i.active{
+    color: coral;
+}
+/*----------NavigationBar----------*/
+
+/*----------Mobile NaviagtionBar----------*/
+#bar{
+    font-size: 1.5rem;
+    padding: 7px;
+    cursor: pointer;
+    font-weight: 500;
+    transition: 0.3s ease;
+}
+#bar:hover,
+#bar.active {
+    color: #fff;
+}
+.navbar-light .navbar-toggler{
+    outline: none;
+    border: none;
+}
+@media only screen and (max-width: 991px){
+    body > nav > div > button:hover,
+    body > nav > div > button:focus{
+        background-color: #fb774b;
+    }
+    body > nav > div > button:hover #bar,
+    body > nav > div > button:focus #bar{
+        background-color: #fb774b;
+    }
+    #navbarSupportedContent>ul{
+        margin: 1rem;
+        justify-content: flex-end;
+        align-items: flex-end;
+        text-align: right;
+    }
+    #navbarSupportedContent> ul > li:nth-child(n) > a{
+        padding: 10px 0;
+    }
+}
+/*----------Mobile NaviagtionBar----------*/
+
+/*----------Home----------*/
+
+/*---Section 1---*/
+#home span{
+    color: coral;
+}
+#home{
+    background-image: url("./assets/Ecommerce-Banner/bg-1.png");
+    width: 100%;
+    height: 100vh;
+    background-size: cover;
+    background-position: top center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+}
+#home button{
+    background-color: #1d1d1d;
+    border-radius: 5%;
+}
+#home button:hover{
+    background-color: #fb774b;
+    border-radius: 5%;
+}
+/*---Section 1---*/
+
+
+/*---Section 2---*/
+.product{
+    cursor: pointer;
+    margin-bottom: 2rem;
+}
+
+.product img{
+    transition: 0.3s all;
+}
+
+.product:hover img{
+    opacity: 0.8;
+}
+
+.product .buy-button{
+    background: #fb774b;
+    transform: translateY(20px);
+    opacity: 0;
+    transition: 0.3s all;
+}
+
+.product:hover .buy-button{
+    transform: translateY(0);
+    opacity: 1;
+}
+
+.star {
+    padding: 10px 0;
+}
+
+.star i{
+    font-size: 0.8rem;
+    color:  goldenrod;
+}
+/*---Section 2---*/
+
+/*---Section 3---*/
+
+#banner {
+    background-image: url("./assets/Ecommerce-Banner/bg-2.png");
+    width: 100%;
+    height: 65vh;
+    background-size: cover;
+    background-position: top 60px center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+#banner h1{
+    color: #d8d8d8;
+}
+#banner h4{
+    color: #d8d8d8;
+}
+
+#banner button{
+    background-color: #fb774b;
+    border-radius: 5%;
+}
 
 .base-block{
-    height: 60px;
+    height: 80px;
 }
 
 /*--------  SignUp Design  ----------*/
@@ -348,4 +295,56 @@ footer .copyright .a .p{
     width: 1000px;
     margin-top: 100px;
 
+}
+
+
+.add-product-container{
+    width: 1000px;
+    margin-top: 40px;
+}
+
+
+
+.img-preview{
+    width: 400px;
+    height: 400px;
+
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.img-thumb{
+
+}
+
+/*Start of preview design*/
+
+.small-img-group{
+    display: flex;
+    justify-content: space-between;
+}
+
+.small-img-col{
+    flex-basis: 24%;
+    cursor: pointer;
+}
+
+.productdetail select{
+    display: block;
+    padding: 5px 10px;
+}
+.sproduct input{
+    width: 50px;
+    height: 40px;
+    padding-left: 10px;
+    margin-right: 10px;
+    font-size: 16px;
+}
+
+.sproduct input:focus {
+    outline: none;
+}
+
+.sproduct button:hover{
+    background-color: #fb774b;
 }

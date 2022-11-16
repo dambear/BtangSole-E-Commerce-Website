@@ -1,0 +1,268 @@
+{% extends "base.html" %} 
+
+{% block title %}Update Product{% endblock %} 
+
+
+{% block navigation_bar %}
+
+    <!--Navigation_Bar-->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light py-3 fixed-top">
+
+        <!--Container-->
+        <div class="container">
+
+            <!--Navigation_Logo-->
+            <img src="{{url_for('static', filename = 'other_resources/logo.png') }}" alt="">
+        
+            <!--NavigationBar_Responsive-->
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span    class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav ml-auto">
+                    <!--Nav_Home-->
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#">Home</a>
+                    </li>
+
+                    <!--Nav_Shop-->
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Product</a>
+                    </li>
+
+                    <!--Nav_Item_Icon-->
+                    <li class="nav-item">
+                        <i class="fa-solid fa-magnifying-glass"></i>
+                        <i class="fa-solid fa-bag-shopping"></i>
+                    </li>
+                </ul>
+
+            </div>
+        </div>
+    </nav>
+
+
+
+
+{% endblock %} 
+
+
+{% block content%}
+
+<div class="container add-product-container shadow-lg p-3 mb-5 bg-body rounded "  >
+    <form class="form-signup" method="POST" enctype="multipart/form-data">
+
+        <h2>Update Product</h2>
+
+        <div class="mb-3 text-right">
+            <button type="submit" class="btn btn-primary">Add Product</button>
+        </div>
+
+        <div class="mb-3 row">
+            
+            <div class="col">
+                
+                <div class="mb-3">
+                        <label for="product_name" class="form-label">Product Name</label>
+                    <input 
+                    type="text" 
+                    class="form-control" 
+                    name="product_name"
+                    id="product_name" 
+                    placeholder="Enter Product Name"
+                    value="{{ product.product_name }}">
+                </div>
+
+                <div class="mb-3">
+                    <label for="product_size" class="form-label">Product Size</label>
+                    <input 
+                        type="text" 
+                        class="form-control" 
+                        name="product_size"
+                        id="product_size" 
+                        placeholder="Enter Product Size"
+                        value="{{ product.product_size }}">
+                </div>
+
+                <div class="mb-3">
+                    <label for="product_description" class="form-label">Product Description</label>
+                    <input 
+                        type="text" 
+                        class="form-control" 
+                        name="product_description"
+                        id="product_description" 
+                        placeholder="Enter Description"
+                        value="{{ product.product_description }}">
+                </div>
+
+                <div class="mb-3">
+                    <label for="image1" class="form-label">Image 1 #Thumbmail</label>
+                    <input 
+                        type="file" 
+                        class="form-control" 
+                        name="image1"
+                        id="image1" 
+                        accept="image/"
+                        oninput="imgprev1.src=window.URL.createObjectURL(this.files[0])"
+                        placeholder="name@example.com">
+
+                   
+                    <div class="mb-3 ">
+
+                        <div class="img-preview border border-dark">
+
+                            <img src="static/uploads/{{product.image}}" class="img-preview" id="imgprev1">
+
+                        </div>
+                    </div>
+                
+                </div>
+
+                <div class="mb-3">
+                    <label for="image2" class="form-label">Image 2</label>
+                    <input 
+                        type="file" 
+                        class="form-control" 
+                        name="image2"
+                        id="image2" 
+                        accept="image/"
+                        oninput="imgprev2.src=window.URL.createObjectURL(this.files[0])"
+                        placeholder="name@example.com">
+
+                   
+                    <div class="mb-3 ">
+
+                        <div class="img-preview border border-dark">
+
+                            <img class="img-preview" id="imgprev2">
+
+                        </div>
+                    </div>
+                
+                </div>
+
+                
+
+
+                
+            </div>
+
+            
+
+    
+
+            <div class="col">
+
+
+                <div class="mb-3">
+                    <label for="product_color" class="form-label">Color</label>
+                    <input 
+                        type="text" 
+                        class="form-control" 
+                        name="product_color"
+                        id="product_color" 
+                        placeholder="Enter Color"
+                        value="{{ product.product_color }}">
+                </div>
+
+
+                <div class="mb-3">
+                    <label for="product_price" class="form-label">Price</label>
+                    <input 
+                        type="number" 
+                        class="form-control" 
+                        name="product_price"
+                        id="product_price" 
+                        placeholder="Enter Price"
+                        value="{{ product.product_price }}">
+                </div>
+
+                <div class="mb-3">
+                    <label for="product_quantity" class="form-label">Product Quantity</label>
+                    <input 
+                        type="number" 
+                        class="form-control" 
+                        name="product_quantity"
+                        id="product_quantity" 
+                        placeholder="Enter Quantity"
+                        value="{{ product.product_quantity }}">
+                </div>
+
+                <div class="mb-3">
+
+                    <label for="cateogry" class="form-label">Category</label>
+
+                    <select name="category" id="cateogry" class="text-center form-select form-control-dark bg-dark text-light">
+                            
+                        <option disabled selected>-- Select Category --</option>
+
+                        <option value="Normal">Normal</option>
+                        <option value="Featured">Featured</option>
+                        <option value="Discounted">Discounted</option>
+
+                    </select>
+                </div>
+
+
+                <div class="mb-3">
+                    <label for="image3" class="form-label">Image 3</label>
+                    <input 
+                        type="file" 
+                        class="form-control" 
+                        name="image3"
+                        id="image3" 
+                        accept="image/"
+                        oninput="imgprev3.src=window.URL.createObjectURL(this.files[0])"
+                        placeholder="name@example.com">
+
+                   
+                    <div class="mb-3 ">
+
+                        <div class="img-preview border border-dark">
+
+                            <img class="img-preview" id="imgprev3">
+
+                        </div>
+                    </div>
+                
+                </div>
+
+                <div class="mb-3">
+                    <label for="image4" class="form-label">Image 4</label>
+                    <input 
+                        type="file" 
+                        class="form-control" 
+                        name="image4"
+                        id="image4" 
+                        accept="image/"
+                        oninput="imgprev4.src=window.URL.createObjectURL(this.files[0])"
+                        placeholder="name@example.com">
+
+                   
+                    <div class="mb-3 ">
+
+                        <div class="img-preview border border-dark">
+
+                            <img class="img-preview" id="imgprev4">
+
+                        </div>
+                    </div>
+                
+                </div>
+            
+                
+                
+                
+        
+
+        
+            </div>
+        </div>
+
+    </form>
+
+</div>
+
+{% endblock %}

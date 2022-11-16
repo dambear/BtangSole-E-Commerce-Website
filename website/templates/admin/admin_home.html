@@ -1,0 +1,98 @@
+{% extends "base.html" %} 
+
+{% block title %}Admin{% endblock %} 
+
+
+{% block navigation_bar %}
+
+    <!--Navigation_Bar-->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light py-3 fixed-top">
+
+        <!--Container-->
+        <div class="container">
+
+            <!--Navigation_Logo-->
+            <img src="{{url_for('static', filename = 'other_resources/logo.png') }}" alt="">
+        
+            <!--NavigationBar_Responsive-->
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span    class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav ml-auto">
+                    <!--Nav_Home-->
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#">Home</a>
+                    </li>
+
+                    <!--Nav_Shop-->
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Product</a>
+                    </li>
+
+                    <!--Nav_Item_Icon-->
+                    <li class="nav-item">
+                        <i class="fa-solid fa-magnifying-glass"></i>
+                        <i class="fa-solid fa-bag-shopping"></i>
+                    </li>
+                </ul>
+
+            </div>
+        </div>
+    </nav>
+
+
+
+
+{% endblock %} 
+
+
+{% block content%}
+
+    
+<div class="container sigup-container shadow-lg p-3 mb-5 bg-body rounded"  >
+    
+    <form class="form-signup" method="POST">
+
+        <h2>LOGIN</h2>
+
+        <div class="mb-3">
+            <label class="form-label">Email Address</label>
+            <input 
+            type="email" 
+            class="form-control" 
+            id="email" 
+            name="email"
+            placeholder="Ex. johndoe@example.com"
+            required>
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label">Password</label>
+            <input 
+            type="password" 
+            class="form-control" 
+            id="password" 
+            name="password"
+            placeholder=""
+            required>
+        </div>
+
+        
+        <br>
+
+        <div class="mb-3 text-center">
+            <input type="submit" class="btn btn-primary" value="Login">
+        </div>
+
+        <div class="mb-3 text-center">
+            <label class="form-label">Dont Have Account? <a href="#">Sign-up</a> </label>
+        </div>
+
+    </form>
+</div>    
+
+
+{% endblock %}

@@ -1,0 +1,94 @@
+
+
+{% extends "base.html" %} 
+
+{% block title %}Shop{% endblock %} 
+
+
+
+{% block navigation_bar %}
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light py-3 fixed-top">
+
+    <!--Container-->
+    <div class="container">
+
+        <!--Navigation_Logo-->
+        <img src="/Online Ecommerce/assets/Ecommerce-Logo/nav-logo.png" alt="#">
+
+        <!--NavigationBar_Responsive-->
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+            data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+            aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav ml-auto">
+                <!--Nav_Home-->
+                <li class="nav-item">
+                    <a class="nav-link active" href="{{url_for('views.home')}}">Home</a>
+                </li>
+
+                <!--Nav_Shop-->
+                <li class="nav-item">
+                    <a class="nav-link" href="{{url_for('views.shop')}}" >Shopping</a>
+                </li>
+
+                <!--Nav_Contact-->
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Contact us</a>
+                </li>
+
+                <!--Nav_Item_Icon-->
+                <li class="nav-item">
+                    <a style="color: black;" href="#"><i class="fa-solid fa-cart-shopping"></i></a>
+                    <a style="color: black;" href="#"><i class="fa-solid fa-user"></i></a>
+                </li>
+            </ul>
+
+        </div>
+    </div>
+</nav>
+
+{% endblock %} 
+
+
+{% block content%}
+
+<!----------Section 1---------->
+<section id="featured" class="my-2 py-1">
+    <div class="container text-center mt-5 py-5">
+        <h3>Our Shop</h3>
+        <hr>
+        <p>Here you can check out our new products with fair price</p>
+    </div>
+    <!--ROW_1-->
+    <div class="row mx-auto container" py-2>
+
+        <!--Jordan 1 low "Gym Red"-->
+        {% for product in products %}
+        <div class="product text-center col-lg-3 col-md-4 col-12">
+            <img src="static/uploads/{{product.image1}}"  class="img-fluid mb-3" alt="{{product.product_name}}">
+            <div class="star">
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+            </div>
+            <h5 class="p-name">{{product.product_name}}</h5>
+            <h4 class="p-price">₱{{product.product_price}}</h4>
+            <a href="{{ product.id }}"><button class="buy-button">Check Here</button></a>
+        </div>
+        {% endfor %}
+
+        
+
+    </div>
+
+    
+
+</section>
+
+
+{% endblock %}
