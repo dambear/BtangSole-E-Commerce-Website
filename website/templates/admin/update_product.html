@@ -2,6 +2,11 @@
 
 {% block title %}Update Product{% endblock %} 
 
+{% block css %} 
+
+<link rel="stylesheet" href="{{ url_for('static', filename='css/admin-add-update.css') }}">
+
+{% endblock %} 
 
 {% block navigation_bar %}
 
@@ -52,12 +57,12 @@
 {% block content%}
 
 <div class="container add-product-container shadow-lg p-3 mb-5 bg-body rounded "  >
-    <form class="form-signup" method="POST" enctype="multipart/form-data">
+    <form class="form" method="POST" enctype="multipart/form-data">
 
-        <h2>Update Product</h2>
-
-        <div class="mb-3 text-right">
-            <button type="submit" class="btn btn-primary">Add Product</button>
+    
+        <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+            <h2>Update Product</h2>
+            <button type="submit" class="btn btn-outline-dark">Update</button>
         </div>
 
         <div class="mb-3 row">
@@ -113,7 +118,7 @@
 
                         <div class="img-preview border border-dark">
 
-                            <img src="static/uploads/{{product.image}}" class="img-preview" id="imgprev1">
+                            <img class="img-preview" id="imgprev1">
 
                         </div>
                     </div>

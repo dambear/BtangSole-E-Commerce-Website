@@ -21,7 +21,7 @@ def login():
                     
                 flash('Logged in successfully!', category='success')
                 login_user(user, remember=remember)
-                return redirect(url_for('views.admin'))
+                return redirect(url_for('views.home'))
     
             else:
                 flash('Incorrect password, try again.', category='error')

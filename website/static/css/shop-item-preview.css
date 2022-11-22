@@ -1,0 +1,57 @@
+
+/*----------Block that make the contents not so top----------*/
+.base-block{
+    height: 80px;
+}
+
+
+.small-img-group{
+    display: flex;
+    justify-content: space-between;
+    
+
+}
+
+
+.small-img-col{
+    flex-basis: 24%;
+    cursor: pointer;
+
+    
+}
+
+.small-img-col img{
+    width: 100%; 
+    height: 90px;
+    
+    
+}
+
+.productdetail select{
+    display: block;
+    padding: 5px 10px;
+}
+
+
+
+.sproduct input{
+    width: 50px;
+    height: 40px;
+    padding-left: 10px;
+    margin-right: 10px;
+    font-size: 16px;
+}
+
+.sproduct input:focus {
+    outline: none;
+}
+
+.sproduct button:hover{
+    background-color: #fb774b;
+}
+
+section img {
+    width: 100%; /* You can set the dimensions to whatever you want */
+    height: 350px;
+  
+}

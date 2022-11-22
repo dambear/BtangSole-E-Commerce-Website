@@ -70,6 +70,9 @@ def createAdmin(app):
         email = "admin@admin.com"
         password1 = "admin123"
         admin=True
+        address=""
+        gender=""
+       
         
         existing_user = User.query.filter_by(email=email).first()
 
@@ -81,7 +84,10 @@ def createAdmin(app):
                 fullname=fullname,
                 email=email,
                 password=generate_password_hash(password1, method='sha256'),
-                is_admin=admin
+                is_admin=admin,
+                address=address,
+                gender=gender,
+                
         
             )
             

@@ -1,0 +1,211 @@
+
+{% extends "base.html" %} 
+
+
+{% block css %} 
+
+<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+
+{% endblock %} 
+
+
+{% block title %}My Profile{% endblock %} 
+
+
+{% block navigation_bar %}
+
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light py-3 fixed-top">
+
+    <!--Container-->
+    <div class="container">
+
+        <!--Navigation_Logo-->
+        <img src="{{url_for('static', filename = 'other_resources/logo.png') }}" alt="">
+
+        <!--NavigationBar_Responsive-->
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+            data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+            aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav ml-auto">
+                <!--Nav_Home-->
+                <li class="nav-item">
+                    <a class="nav-link active" href="{{url_for('views.home')}}">Home</a>
+                </li>
+
+                <!--Nav_Shop-->
+                <li class="nav-item">
+                    <a class="nav-link" href="{{url_for('views.shop')}}" >Shop</a>
+                </li>
+
+
+                {% if current_user.is_authenticated %}
+
+                <li class="nav-item">
+                    <a style="color: black;" href="#"><i class="fa-solid fa-cart-shopping"></i></a>
+                </li>
+
+                <ul class="navbar-nav">
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" 
+                            data-bs-toggle="dropdown" aria-expanded="false">
+
+                            <i class="fa-solid fa-user"></i>
+
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-dark">
+                            <li><a class="dropdown-item" href="/admin">{{ current_user.fullname }}</a></li>
+                            <li><a class="dropdown-item" href="/logout">Logout</a></li>
+                        </ul>
+                    </li>
+                </ul>
+                
+                {% else %}
+
+                <li class="nav-item">
+                    <a style="color: black;" href="{{url_for('auth.login')}}">Login</a>
+                </li>
+
+                <li class="nav-item">
+                    <a style="color: black;" href="{{url_for('auth.sign_up')}}">Register</a>
+                </li>
+
+                {% endif %}
+       
+                
+            </ul>
+
+        </div>
+    </div>
+</nav>
+
+
+{% endblock %} 
+
+
+
+{% block content%}
+
+<!--SignUP-->
+<div class="container sign-up-container shadow-lg p-3 mb-5 bg-body rounded"  >
+    <form class="form-signup" action="">
+
+        <h2>MY PROFILE</h2>
+
+        <div class="col">
+        
+            <div class="mb-3">
+                    <label for="product_name" class="form-label">Name :</label>
+                <input 
+                
+                type="text" 
+                class="form-control" 
+                name="product_name"
+                id="product_name" 
+                placeholder="Enter Product Name">
+            </div>
+
+            <div class="mb-3">
+                <label for="product_size" class="form-label">Email :</label>
+                <input 
+                    type="text" 
+                    class="form-control" 
+                    name="product_size"
+                    id="product_size" 
+                    placeholder="Email" disabled>
+                    <a href="#" class="stretched-link">Change</a>
+            </div>
+
+            <div class="mb-3">
+                <label for="product_description" class="form-label">Gender :</label>
+                <input 
+                    class=""
+                     type="radio" 
+                     name="flexRadioDefault" 
+                     id="flexRadioDefault1">
+                <label class="form-check-label" for="flexRadioDefault1">
+                  Male
+                </label>
+              
+                <input 
+                    class=""
+                     type="radio" 
+                     name="flexRadioDefault" 
+                     id="flexRadioDefault2">
+                <label class="form-check-label" for="flexRadioDefault2">
+                  Female
+                </label>
+
+                <input 
+                     class=""
+                     type="radio" 
+                     name="flexRadioDefault" 
+                     id="flexRadioDefault3">
+                <label class="form-check-label" for="flexRadioDefault3">
+                  Other
+                </label>
+               
+            </div>
+            
+            <div class="mb-3">
+                <label for="product_name" class="form-label">BirthDate :</label>
+            <input 
+            
+            type="date" 
+            class="form-control" 
+            name="product_name"
+            id="product_name" 
+            placeholder="Enter Product Name">
+        </div>
+            
+        <div class="mb-3 text-center">
+            <button type="button" class="btn btn-primary">Save</button>
+        </div>
+
+
+        <!-------------------------------------------->
+        
+        <div class="tab-titles">
+            <p class="tab-links active-link" onclick="opentab('ToPay')">To Pay</p>
+            <p class="tab-links" onclick="opentab('ToShip')">To Ship</p>
+            <p class="tab-links" onclick="opentab('ToRecieve')">To Recieve</p>
+        </div>
+          <div class="tab-contents active-tab" id="ToPay">  
+            <ul>
+                <li><i  style="margin-right:10px" class="fa-solid fa-location-dot"></i>San Isidro, Batangas City</li>
+                <li><i style="margin-right:10px" class="fa-solid fa-address-book"></i>San Isidro Village Phase II, Block 22 Lot 24</li>
+
+            </ul>
+        </div>
+        <div class="tab-contents" id="ToShip">
+            <ul>
+                <li><i style="margin-right:10px" class="fa-brands fa-java"></i>JAVA</li>
+                <li><i style="margin-right:10px" class="fa-brands fa-html5"></i>HTML</li>
+                <li><i style="margin-right:10px" class="fa-brands fa-css3-alt"></i>CSS</li>
+                <li><i style="margin-right:10px" class="fa-brands fa-python"></i>PYTHON</li>
+                <li><i style="margin-right:10px" class="fa-brands fa-square-js"></i>JAVASCRIPT</li>
+            </ul>
+        </div>
+
+        <div class="tab-contents" id="ToRecieve">
+                <ul>
+                    <li><i style="margin-right:10px" class="fa-sharp fa-solid fa-tv"></i>Watching Kdrama/Anime</li>
+                    <li><i style="margin-right:10px" class="fa-brands fa-readme"></i>Reading Light Novels</li>
+                    <li><i style="margin-right:10px" class="fa-solid fa-bicycle"></i>Cycling</li>
+                </ul>
+         </div>  
+          
+
+
+        </div>
+    </form>
+</div>
+
+
+
+</div>
+
+{% endblock %}

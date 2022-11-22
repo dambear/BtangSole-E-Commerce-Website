@@ -14,7 +14,7 @@
         
 
         <!--Style.Css Link import locally-->
-        <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/base.css') }}">
 
 
 
@@ -30,11 +30,13 @@
         <!--Fontawesome_CDN_Script-->
 
         
-
+        {% block css %}{% endblock %}
 
 
         <!--Setup Title-->
         <title>{% block title %}Home{% endblock %}</title>
+
+
 
     </head>
 
@@ -47,47 +49,7 @@
 
         {% block navigation_bar %}
 
-            <nav class="navbar navbar-expand-lg navbar-light bg-light py-3 fixed-top">
-
-                <!--Container-->
-                <div class="container">
-        
-                    <!--Navigation_Logo-->
-                    <img src="{{url_for('static', filename = 'other_resources/logo.png') }}" alt="">
-        
-                    <!--NavigationBar_Responsive-->
-                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                        data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
-                        aria-label="Toggle navigation">
-                        <span class="navbar-toggler-icon"></span>
-                    </button>
-                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                        <ul class="navbar-nav ml-auto">
-                            <!--Nav_Home-->
-                            <li class="nav-item">
-                                <a class="nav-link active" href="#">Home</a>
-                            </li>
-        
-                            <!--Nav_Shop-->
-                            <li class="nav-item">
-                                <a class="nav-link" href="./assets/Ecommerce-Pages/shopping.html">Shopping</a>
-                            </li>
-        
-                            <!--Nav_Contact-->
-                            <li class="nav-item">
-                                <a class="nav-link" href="#">Contact us</a>
-                            </li>
-        
-                            <!--Nav_Item_Icon-->
-                            <li class="nav-item">
-                                <a style="color: black;" href="#"><i class="fa-solid fa-cart-shopping"></i></a>
-                                <a style="color: black;" href="#"><i class="fa-solid fa-user"></i></a>
-                            </li>
-                        </ul>
-        
-                    </div>
-                </div>
-            </nav>
+            
 
         {% endblock %}
      
@@ -120,7 +82,7 @@
         </div>
 
         <!--This part can be override by other html-->
-        <div class="container">{% block content %} {% endblock %}</div>
+        {% block content %} {% endblock %}
 
 
         <!--SECTION_4-->
@@ -176,6 +138,9 @@
             </div>
         </footer>
 
+
+
+        {% block Javascript %}{% endblock %}
        
         <!--Fontawesome_script -->
         <script src="https://kit.fontawesome.com/924fff2849.js" crossorigin="anonymous"></script>

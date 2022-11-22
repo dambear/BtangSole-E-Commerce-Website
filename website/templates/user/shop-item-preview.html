@@ -5,7 +5,7 @@
 
 {% block css %} 
 
-<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+<link rel="stylesheet" href="{{ url_for('static', filename='css/shop-item-preview.css') }}">
 
 {% endblock %} 
 
@@ -19,12 +19,14 @@
 {% block navigation_bar %}
 
 
+
 <nav class="navbar navbar-expand-lg navbar-light bg-light py-3 fixed-top">
 
     <!--Container-->
     <div class="container">
 
         <!--Navigation_Logo-->
+       
         <img src="{{url_for('static', filename = 'other_resources/logo.png') }}" alt="">
 
         <!--NavigationBar_Responsive-->
@@ -86,48 +88,56 @@
     </div>
 </nav>
 
+  
 {% endblock %} 
 
 
 {% block content%}
 
-<!----------Section 1---------->
-<section id="featured" class="my-2 py-1">
-    <div class="container text-center mt-5 py-5">
-        <h3>Our Shop</h3>
-        <hr>
-        <p>Here you can check out our new products with fair price</p>
-    </div>
-    <!--ROW_1-->
-    <div class="row mx-auto" py-2>
 
-        <!--Jordan 1 low "Gym Red"-->
-        {% for product in products %}
-        <div class="product text-center col-lg-3 col-md-4 col-12">
-            <img src="static/uploads/{{product.image1}}" width="500px" height="500px"
-            class="img-fluid mb-3" alt="{{product.product_name}}">
-            <div class="star">
-                <i class="fa-solid fa-star"></i>
-                <i class="fa-solid fa-star"></i>
-                <i class="fa-solid fa-star"></i>
-                <i class="fa-solid fa-star"></i>
-                <i class="fa-solid fa-star"></i>
+<section class="container sproduct my-5 pt-5">
+    <div class="row mt-5">
+        <div class="col-lg-4 col-md-4 col-12">
+            <img src="/static/uploads/{{product.image1}}"  class="big-img-col mg-fluid w-100 pb-1"  id="MainImg" alt="">
+          
+
+            <div class="small-img-group pt-1">
+                <div class="small-img-col ">
+                    <img src="/static/uploads/{{product.image1}}" width="100%" class="small-img" alt="">
+                </div>
+                <div class="small-img-col ">
+                    <img src="/static/uploads/{{product.image2}}" width="100%" class="small-img" alt="">
+                </div>
+                <div class="small-img-col ">
+                    <img src="/static/uploads/{{product.image3}}" width="100%"  class="small-img" alt="">
+                </div>
+                <div class="small-img-col">
+                    <img src="/static/uploads/{{product.image4}}" width="100%" class="small-img" alt="">
+                </div>
             </div>
-            <h5 class="p-name">{{product.product_name}}</h5>
-            <h4 class="p-price">₱{{product.product_price}}</h4>
-            <a href="shop/{{ product.id }}"><button class="buy-button">Check Here</button></a>
         </div>
-        {% endfor %}
 
-        
+        <div class="col-lg-6 col-md-12 col-12">
+            <a href="../Ecommerce-Pages/shopping.html"><h6>Back / Shop</h6></a>
+            <h3> {{product.product_name}} </h3>
+            <h2>₱{{product.product_price}}</h2>
 
+            <button>Add to Cart</button>
+            <h4 class="pt-3">Product Details</h4>
+            <span>I{{product.product_description}}</span>
+        </div>
     </div>
-
-    
-
 </section>
 
-{% block Javascript %}{% endblock %}
 
+{% endblock %}
+
+
+
+
+
+{% block Javascript %}
+
+<script src="{{ url_for('static', filename='javascript/shop-item-preview.js') }}"></script>
 
 {% endblock %}

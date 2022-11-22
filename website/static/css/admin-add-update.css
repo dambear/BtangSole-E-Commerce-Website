@@ -1,0 +1,30 @@
+
+/*----------Block that make the contents not so top----------*/
+.base-block{
+    height: 80px;
+}
+
+
+.form{
+    padding: 20px;
+}
+
+
+
+
+.add-product-container{
+    width: 1000px;
+    margin-top: 40px;
+}
+
+
+
+.img-preview{
+    width: 400px;
+    height: 400px;
+
+    margin-left: auto;
+    margin-right: auto;
+}
+
+

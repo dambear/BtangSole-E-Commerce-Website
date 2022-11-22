@@ -9,7 +9,11 @@ class User(db.Model, UserMixin):
     email = db.Column(db.String(150), unique=True)
     password = db.Column(db.String(80))
     is_admin = db.Column(db.Boolean, default=False)
+    address = db.Column(db.String(1500))
+    gender = db.Column(db.String(30))
+    birthday = db.Column(db.DateTime)
     join_at = db.Column(db.DateTime(timezone=True), default=db.func.now())
+    
     
     
 
@@ -24,9 +28,10 @@ class Product(db.Model):
     product_description = db.Column(db.String(3000))
     image1 = db.Column(db.String(1000))
     image2 = db.Column(db.String(1000))
-    product_color = db.Column(db.String(2000))
+    product_color = db.Column(db.String(1000))
     product_price = db.Column(db.Integer)
-    product_quantity = db.Column(db.Float)
+    product_quantity = db.Column(db.Integer)
+    product_category = db.Column(db.String(100))
     image3 = db.Column(db.String(1000))
     image4 = db.Column(db.String(1000))
     date_added = db.Column(db.DateTime(timezone=True), default=db.func.now())

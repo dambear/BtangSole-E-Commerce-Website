@@ -3,6 +3,14 @@
 {% block title %}Sign-up{% endblock %} 
 
 
+{% block css %} 
+
+<link rel="stylesheet" href="{{ url_for('static', filename='css/login-signup.css') }}">
+
+{% endblock %} 
+
+
+
 {% block content%}
     
 <!--SignUP-->
@@ -63,7 +71,7 @@
         </div>
 
         <div class="mb-3 text-center">
-            <label class="form-label">Have Account? <a href="#">Login</a> </label>
+            <label class="form-label">Have Account? <a href="{{url_for('auth.login')}}">Login</a> </label>
         </div>
 
     </form>
