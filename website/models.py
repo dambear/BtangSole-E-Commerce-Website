@@ -36,3 +36,26 @@ class Product(db.Model):
     image4 = db.Column(db.String(1000))
     date_added = db.Column(db.DateTime(timezone=True), default=db.func.now())
 
+
+class Cart(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
+    product_id = db.Column(db.Integer, db.ForeignKey('product.id'))
+    image1 = db.Column(db.String(1000))
+    product_name = db.Column(db.String(150))
+    product_price = db.Column(db.Integer)
+    quantity = db.Column(db.Integer)
+    total = db.Column(db.Integer)
+    
+    
+class Order(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    fullname = db.Column(db.String(150))
+    mobilenum = db.Column(db.Integer)
+    address = db.Column(db.String(700))
+    product_id = db.Column(db.Integer, db.ForeignKey('product.id'))
+    product_name = db.Column(db.String(150))
+    quantity = db.Column(db.Integer)
+    total_price = db.Column(db.Integer)
+    paymentmethod = db.Column(db.String(150))
+    approve = db.Column(db.Boolean, default=False)

@@ -1,0 +1,29 @@
+
+
+
+
+
+
+
+.panel-primary{
+    padding: 20px;
+}
+
+.panel-footer{
+    margin-top: 10px;
+}
+
+.panel-footer button:hover{
+    background-color: #fb774b;
+}
+
+.quantity-input{
+    width: 100px;
+}
+
+
+
+.minus{
+    width: 30px;
+}
+

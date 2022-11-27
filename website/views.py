@@ -1,6 +1,6 @@
 from flask import Flask, Blueprint, flash, redirect, render_template, request, url_for
 from flask_login import current_user, login_required
-from .models import Product
+from .models import Product, Cart, Order
 from werkzeug.utils import secure_filename
 from . import db
 import os
@@ -36,18 +36,200 @@ def shop():
     return render_template("user/shop.html", products=products)
 
 
-@views.route('/shop/<int:id>/')
+@views.route('/shop/<int:id>/', methods=['GET', 'POST'])
 @login_required
 def product(id):
     product = Product.query.get(id)
+    
+    
+    if request.method == 'POST':
+        
+        
+        
+        
+        existingincart = Cart.query.filter_by(user_id=current_user.id, product_id=product.id).first()
+        
+        if existingincart:
+            flash('Same product is already in cart!', category='error')
+        
+        else:
+            quantity = 1
+            
+            
+            
+            total = quantity*product.product_price
+
+            add_to_cart = Cart(user_id=current_user.id, product_id=product.id, 
+                            image1=product.image1, product_name=product.product_name,  
+                            product_price=product.product_price, quantity=quantity, total=total)
+                
+            db.session.add(add_to_cart)
+            db.session.commit()
+            flash('Product added to cart successfully!', category='success')
+      
+        
+        
+            
+    
+    
+    
     return render_template("user/shop-item-preview.html", product=product)
 
 
 
-@views.route('/user')
-def user_profile():
+@views.route('/cart', methods=['GET', 'POST'])
+@login_required
+def cart():
+    
+    carts = Cart.query.filter_by(user_id=current_user.id)
+    
+    
+    cart_total = []
+    for cart_t in carts:
+        i = cart_t.total
+        cart_total.insert(0,i)
+        
+    cart_total = sum(cart_total)
+    shippingfee = 100
+    
+    order_total = cart_total+ shippingfee
+    
+    if request.method == 'POST':
+        
 
-    return render_template("user/user-profile.html")
+    
+        if request.form.get('plus') == '+':
+            
+
+            
+            cid = request.form.get('cid')
+            carts = Cart.query.get(cid)
+        
+        
+            carts.quantity = carts.quantity + 1
+            db.session.commit()
+            
+            carts.total = carts.quantity*carts.product_price
+            
+            db.session.commit()
+    
+            return redirect(url_for('views.cart'))
+        
+        if request.form.get('minus') == '-':
+            
+
+            
+            cid = request.form.get('cid')
+            carts = Cart.query.get(cid)
+        
+
+                
+
+                    
+            carts.quantity = carts.quantity - 1
+            db.session.commit()
+                
+            carts.total = carts.quantity*carts.product_price
+                
+            db.session.commit()
+    
+            return redirect(url_for('views.cart'))
+            
+            
+            
+        if request.form.get('delete') == 'delete':
+             
+            cid = request.form.get('cid')
+            carts = Cart.query.get(cid)
+            
+                    
+            db.session.delete(carts)
+            db.session.commit()
+            
+            return redirect(url_for('views.cart'))
+        
+        if request.form.get('checkout') == 'checkout':
+            
+            return redirect(url_for('views.order_checkout'))
+            
+    
+    return render_template("user/cart.html", carts=carts, cart_total=cart_total, order_total=order_total)
+
+
+
+
+@views.route('/checkout', methods=['GET', 'POST'])
+@login_required
+def order_checkout():
+    
+    carts = Cart.query.filter_by(user_id=current_user.id)
+    
+   
+    
+    
+    cart_total = []
+    for cart_t in carts:
+        i = cart_t.total
+        cart_total.insert(0,i)
+        
+    cart_total = sum(cart_total)
+    shippingfee = 100
+    
+    order_total = cart_total+ shippingfee
+    
+    
+    if request.method == 'POST':
+        
+        cid = request.form.get('cid')
+        
+        cart = Cart.query.get(cid)
+        
+        
+        fname = request.form.get('fname')
+        lname = request.form.get('lname')
+        pnumber = request.form.get('pnumber')
+        province_text = request.form.get('province_text')
+        city_text = request.form.get('city_text')
+        barangay_text = request.form.get('barangay_text')
+        street_text = request.form.get('street_text')
+        paymentmethod = request.form.get('paymentmethod')
+        
+        address = province_text + " " + city_text + " " + barangay_text + " " + street_text
+        
+        fullname = fname + " " + lname
+        
+        
+        add_to_order = Order(fullname=fullname, mobilenum=pnumber, address=address,  
+                            product_id=cart.product_id, product_name=cart.product_name, 
+                            quantity=cart.quantity, total_price=order_total, 
+                            paymentmethod=paymentmethod)
+        
+        db.session.add(add_to_order)
+        db.session.commit()
+        
+        flash('Your Order was successfully place!', category='success')
+        
+        
+        product = Product.query.get(cart.product_id)
+        
+        
+    
+        product.product_quantity = product.product_quantity - cart.quantity
+        
+        db.session.commit()
+        
+        
+        cartdelete = Cart.query.get(cid)
+        
+        db.session.delete(cartdelete)
+        db.session.commit()
+        
+        return redirect(url_for('views.home'))
+    
+    
+    
+
+    return render_template("user/checkout.html", carts=carts, cart_total=cart_total, order_total=order_total)
 
 
 

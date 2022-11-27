@@ -1,0 +1,269 @@
+
+
+{% extends "base.html" %} 
+
+
+{% block css %} 
+
+<link rel="stylesheet" href="{{ url_for('static', filename='css/cart.css') }}">
+
+{% endblock %} 
+
+
+
+
+{% block title %}Shop{% endblock %} 
+
+
+
+{% block navigation_bar %}
+
+
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light py-3 fixed-top">
+
+    <!--Container-->
+    <div class="container">
+
+        <!--Navigation_Logo-->
+       
+        <img src="{{url_for('static', filename = 'other_resources/logo.png') }}" alt="">
+
+        <!--NavigationBar_Responsive-->
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+            data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+            aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav ml-auto">
+                <!--Nav_Home-->
+                <li class="nav-item">
+                    <a class="nav-link active" href="{{url_for('views.home')}}">Home</a>
+                </li>
+
+                <!--Nav_Shop-->
+                <li class="nav-item">
+                    <a class="nav-link" href="{{url_for('views.shop')}}" >Shop</a>
+                </li>
+
+
+                {% if current_user.is_authenticated %}
+
+                <li class="nav-item">
+                    <a style="color: black;" href="#"><i class="fa-solid fa-cart-shopping"></i></a>
+                </li>
+
+                <ul class="navbar-nav">
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" 
+                            data-bs-toggle="dropdown" aria-expanded="false">
+
+                            <i class="fa-solid fa-user"></i>
+
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-dark">
+                            <li><a class="dropdown-item" href="/admin">{{ current_user.fullname }}</a></li>
+                            <li><a class="dropdown-item" href="/logout">Logout</a></li>
+                        </ul>
+                    </li>
+                </ul>
+                
+                {% else %}
+
+                <li class="nav-item">
+                    <a style="color: black;" href="{{url_for('auth.login')}}">Login</a>
+                </li>
+
+                <li class="nav-item">
+                    <a style="color: black;" href="{{url_for('auth.sign_up')}}">Register</a>
+                </li>
+
+                {% endif %}
+       
+                
+            </ul>
+
+        </div>
+    </div>
+</nav>
+
+  
+{% endblock %} 
+
+
+{% block content%}
+
+<section class="mt-5 py-5">
+    <div class="container mt-4 py-2">
+
+        <div class="row mt-2 py-1" >
+            <!--Section 1-->
+            
+            <div class="col-lg-8">
+    
+                <!--Add Cart Icon-->
+                <h3>
+                    <i class="fa-solid fa-cart-shopping"></i>
+                    Your Shopping Cart
+                </h3>
+                <!--Add Cart Icon-->
+      
+                <div class="row">
+                            
+                    <form method="post">        
+                    <table class="text-center table table table-bordered rounded border-dark">
+                        <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>Product Name</th>
+                                <th>Product Image</th>
+                                <th>Price</th>
+                                <th>Quantity</th>
+                                <th>Total</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                    
+                        <tbody class="table-group-divider">
+                            {% for cart in carts %}
+                            <tr>
+                                <td>{{cart.id}}</td>
+                                <td><a class="link-light">{{ cart.product_name }}</a></td>
+                                <td><img src="/static/uploads/{{ cart.image1 }}" width="100px" height="100px"></td>
+                                <td>₱{{ cart.product_price }}
+
+                                    <div class="one-item-total">{{ cart.product_price }}</div>
+
+                                </td>
+                                
+                                <td >
+                                        {% if cart.quantity < 2 %}
+                                        <button value="-" name="minus" class="btn btn-sm btn-outline-light" disabled>
+                                            -
+                                        </button>
+                                        
+                                        {% else %}
+
+                                        <button value="-" name="minus" class="btn btn-sm btn-outline-danger">
+                                            -
+                                        </button>
+                                        
+                                        {%endif%}
+
+                                        <input class="text-center quantity-input" name="quan" type="number" value="{{ cart.quantity }}" disabled>
+                                        
+                                        <button value="+" name="plus" class="btn btn-sm btn-outline-danger">
+                                            +
+                                        </button>
+                                        <input type="hidden" name="cid" value="{{ cart.id }}">
+                                    
+                                    
+                                    
+                                <td>{{ cart.total }}</td>
+                                <td>
+                                    <button value="delete" name="delete" class="btn btn-sm btn-outline-danger">
+                                        <i class="fas fa-trash"></i>
+                                    </button>
+                                </td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                    </form>
+              
+                    
+
+
+                </div>
+            
+
+            </div>
+            <!--Section 1-->
+    
+            <!--Section 2-->
+            <div class="col-lg-4 ">
+                <h3><i class="fa-solid fa-list"></i> Cart Summary</h3>
+    
+                <div class="panel panel-primary border border-dark">
+                    <div class="panel-body">
+                        Current Cart Value
+                    </div>
+    
+                    <table class="text-center table table table-bordered rounded border-dark">
+                        
+                    
+                        <tbody class="table-group-divider">
+                            <tr>
+                                <td>Item</td>
+                                <td>₱{{ cart_total }}</td>
+                            </tr>
+                            <tr>
+                                <td>Shipping Fee</td>
+                                <td class="shipping-fee">₱100</td>
+                            </tr>
+                            <tr>
+                                <td>Total</td>
+                                <td>₱{{ order_total }}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+    
+                    <!--Footer-->
+                    <div class="panel-footer text-center">
+                        <form method="post"> 
+
+                            {% if cart_total <= 0 %}
+                         
+                            <a href="#" class="btn btn-link btn-sm ">
+                            Continue Shopping
+                            </a>
+
+                            {% else %}
+
+                            <button value="checkout" name="checkout">
+                                Checkout 
+                            </button>
+                        
+                            <a href="#" class="btn btn-link btn-sm ">
+                            Continue Shopping
+                            </a>
+
+                            {% endif %}
+
+                        </form>
+                    </div>
+                    <!--Footer-->
+    
+                </div>
+            </div>
+            <!--Section 2-->
+        </div>
+
+    </div>
+</section>
+
+
+{% endblock %}
+
+
+{% block Javascript %}
+
+<script>
+
+    var sum = 0;
+    total = function{
+        $('.one-item-total').each(function()
+        {
+            sum += parseInt($(this).text());
+        });
+        alert(sum);
+    
+    }
+
+
+</script>
+
+{% endblock %}
+
+

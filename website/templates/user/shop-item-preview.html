@@ -118,11 +118,16 @@
         </div>
 
         <div class="col-lg-6 col-md-12 col-12">
-            <a href="../Ecommerce-Pages/shopping.html"><h6>Back / Shop</h6></a>
+            <a href="{{url_for('views.shop')}}"><h6>Back / Shop</h6></a>
             <h3> {{product.product_name}} </h3>
             <h2>₱{{product.product_price}}</h2>
 
-            <button>Add to Cart</button>
+
+
+            <form method="post">
+                <button>Add to Cart</button>
+            </form>
+
             <h4 class="pt-3">Product Details</h4>
             <span>I{{product.product_description}}</span>
         </div>
