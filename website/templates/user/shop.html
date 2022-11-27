@@ -37,12 +37,12 @@
             <ul class="navbar-nav ml-auto">
                 <!--Nav_Home-->
                 <li class="nav-item">
-                    <a class="nav-link active" href="{{url_for('views.home')}}">Home</a>
+                    <a class="nav-link " href="{{url_for('views.home')}}">Home</a>
                 </li>
 
                 <!--Nav_Shop-->
                 <li class="nav-item">
-                    <a class="nav-link" href="{{url_for('views.shop')}}" >Shop</a>
+                    <a class="nav-link active" href="{{url_for('views.shop')}}" >Shop</a>
                 </li>
 
 
@@ -68,14 +68,15 @@
                 </ul>
                 
                 {% else %}
-
                 <li class="nav-item">
-                    <a style="color: black;" href="{{url_for('auth.login')}}">Login</a>
+                    <a class="nav-link " href="{{url_for('auth.login')}}">Login</a>
                 </li>
 
+                <!--Nav_Shop-->
                 <li class="nav-item">
-                    <a style="color: black;" href="{{url_for('auth.sign_up')}}">Register</a>
+                    <a class="nav-link " href="{{url_for('auth.sign_up')}}" >Register</a>
                 </li>
+
 
                 {% endif %}
        

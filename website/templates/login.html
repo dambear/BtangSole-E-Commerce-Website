@@ -1,61 +1,96 @@
-{% extends "base.html" %} 
+<!DOCTYPE html>
+<html lang="en">
 
-{% block title %}Sign-up{% endblock %} 
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!--Title-->
+    <title>Login - Ecommerce</title>
+    <!--Title-->
 
 
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/login.css') }}" />
 
-{% block css %} 
-
-<link rel="stylesheet" href="{{ url_for('static', filename='css/login-signup.css') }}">
-
-{% endblock %} 
-
+    <!--Fontawesome_script -->
+    <script src="https://kit.fontawesome.com/924fff2849.js" crossorigin="anonymous"></script>
+    <!--Fontawesome_script -->
 
 
-{% block content%}
+</head>
 
-    
-<div class="container sigup-container shadow-lg p-3 mb-5 bg-body rounded"  >
-    
-    <form class="form-signup" method="POST">
+<body>
 
-        <h2>LOGIN</h2>
+    <div class="container">
+        <!----------Form Container---------->
+        <div class="forms-container">
 
-        <div class="mb-3">
-            <label class="form-label">Email Address</label>
-            <input 
-            type="email" 
-            class="form-control" 
-            id="email" 
-            name="email"
-            placeholder="Ex. johndoe@example.com"
-            required>
+            <div class="signin-signup">
+
+                <!----------SignIn Form---------->
+                <form class="sign-in-form" method="post">
+
+                    <h2 class="title">Login</h2>
+
+                    <!--Email Address-->
+                    <div class="input-field">
+                        <i class="fas fa-user"></i>
+                        <input type="email" 
+                        class="form-control" 
+                        id="email" 
+                        name="email"
+                        placeholder="Enter a email"
+                        required>
+                    </div>
+                    <!--Email Address-->
+
+                    <!--Password-->
+                    <div class="input-field">
+                        <i class="fas fa-lock"></i>
+                        <input type="password" 
+                        class="form-control" 
+                        id="password" 
+                        name="password"
+                        placeholder="Enter a password"
+                        required>
+                    </div>
+                    <!--Password-->
+
+                    <!--Button-->
+                    <input type="submit" class="btn btn-primary" value="Login">
+                    <!--Button-->
+
+                </form>
+                <!----------SignIn Form---------->
+
+            </div>
         </div>
+        <!----------Form Container---------->
 
-        <div class="mb-3">
-            <label class="form-label">Password</label>
-            <input 
-            type="password" 
-            class="form-control" 
-            id="password" 
-            name="password"
-            placeholder=""
-            required>
+        <!----------Panels---------->
+        <div class="panels-container">
+
+            <!----------SignUp Panels---------->
+            <div class="panel left-panel">
+                <div class="content">
+                    <h3>New here ?</h3>
+                    <p>
+                        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Debitis,
+                        ex ratione. Aliquid!
+                    </p>
+                    <a href="{{url_for('auth.sign_up')}}"><button class="btn transparent" id="sign-up-btn"> Sign up </button></a>
+                </div>
+                <img src="{{url_for('static', filename = 'other_resources/panel-1.png') }}" class="image" alt="" />
+            </div>
+            <!----------SignUp Panels---------->
+
         </div>
+        <!----------Panels---------->
 
-        
-        <br>
+    </div>
+    </div>
 
-        <div class="mb-3 text-center">
-            <input type="submit" class="btn btn-primary" value="Login">
-        </div>
+</body>
 
-        <div class="mb-3 text-center">
-            <label class="form-label">Dont Have Account? <a href="{{url_for('auth.sign_up')}}">Sign-up</a> </label>
-        </div>
-
-    </form>
-</div>    
-
-
-{% endblock %}
+</html>
