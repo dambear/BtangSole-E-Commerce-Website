@@ -114,15 +114,18 @@ def update_product(id):
         imagename4 = secure_filename(image4.filename)
         
         
-        
+  
+            
+            
+            
         base_path = os.path.abspath(os.path.dirname(__file__))
         upload_path = os.path.join(base_path, app.config['UPLOAD_FOLDER'])
         image1.save(os.path.join(upload_path, imagename1))
         image2.save(os.path.join(upload_path, imagename2))
         image3.save(os.path.join(upload_path, imagename3))
         image4.save(os.path.join(upload_path, imagename4))
-        
-        
+            
+
         
         product.image1 = imagename1
         product.image2 = imagename2
