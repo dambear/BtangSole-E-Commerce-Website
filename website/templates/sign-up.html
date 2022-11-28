@@ -1,81 +1,122 @@
-{% extends "base.html" %} 
+<!DOCTYPE html>
+<html lang="en">
 
-{% block title %}Sign-up{% endblock %} 
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!--Title-->
+    <title>Signup - Ecommerce</title>
+    <!--Title-->
 
 
-{% block css %} 
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/signup.css') }}" />
 
-<link rel="stylesheet" href="{{ url_for('static', filename='css/login-signup.css') }}">
+    <!--Fontawesome_script -->
+    <script src="https://kit.fontawesome.com/924fff2849.js" crossorigin="anonymous"></script>
+    <!--Fontawesome_script -->
 
-{% endblock %} 
 
+</head>
 
+<body>
 
-{% block content%}
-    
-<!--SignUP-->
-<div class="container sigup-container shadow-lg p-3 mb-5 bg-body rounded"  >
-    
-    <form class="form-signup" method="POST">
+    <div class="container">
+        <!----------Form Container---------->
+        <div class="forms-container">
 
-        <h2>SIGN UP</h2>
+            <div class="signin-signup">
 
-        <div class="mb-3">
-            <label class="form-label">Full Name</label>
-            <input 
-            type="text" 
-            class="form-control" 
-            id="fullname" 
-            name="fullname"
-            placeholder="Ex. John Doe"
-            required>
+                <!----------SignIn Form---------->
+                <form class="sign-in-form" method="post">
+
+                    <h2 class="title">Sign up</h2>
+
+                    <!--Fullname-->
+                    <div class="input-field">
+                        <i class="fas fa-user"></i>
+                        <input type="text" 
+                                class="form-control" 
+                                id="fullname" 
+                                name="fullname"
+                                placeholder="Enter a fullname" 
+                                required />
+                    </div>
+                    <!--Fullname-->
+
+                    <!--Email-->
+                    <div class="input-field">
+                        <i class="fas fa-user"></i>
+                        <input type="email" 
+                                class="form-control" 
+                                id="email" 
+                                name="email" 
+                                placeholder="Enter a email"
+                            required />
+                    </div>
+                    <!--Email-->
+
+                    <!--Password-->
+                    <div class="input-field">
+                        <i class="fas fa-lock"></i>
+                        <input type="password" 
+                            class="form-control" 
+                            id="password" 
+                            name="password" 
+                            placeholder="Enter a password"
+                            required />
+                    </div>
+                    <!--Password-->
+
+                    <!--ReEnter Password-->
+                    <div class="input-field">
+                        <i class="fas fa-lock"></i>
+                        <input type="password" 
+                        class="form-control" 
+                        id="cpassword" 
+                        name="cpassword"
+                        placeholder="Re-enter password"
+                        required/>
+                    </div>
+                    <!--ReEnter Password-->
+
+                    <!--Button-->
+                    <input type="submit" class="btn btn-primary" value="Submit">
+                    <!--Button-->
+
+                </form>
+                <!----------SignIn Form---------->
+
+            </div>
         </div>
+        <!----------Form Container---------->
 
-        <div class="mb-3">
-            <label class="form-label">Email Address</label>
-            <input 
-            type="email" 
-            class="form-control" 
-            id="email" 
-            name="email"
-            placeholder="Ex. johndoe@example.com"
-            required>
+        <!----------Panels---------->
+        <div class="panels-container">
+
+            <!----------SignUp Panels---------->
+            <div class="panel left-panel">
+                <div class="content">
+                    <h3>One of us ?</h3>
+                    <p>
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum
+                        laboriosam ad deleniti.
+                    </p>
+                    <a href="{{url_for('auth.login')}}"><button class="btn transparent" id="sign-in-btn">Sign
+                            in</button></a>
+                </div>
+
+                <img src="{{url_for('static', filename = 'other_resources/panel-2.png') }}" class="image" alt="" />
+            </div>
+            <!----------SignUp Panels---------->
+
         </div>
+        <!----------Panels---------->
 
-        <div class="mb-3">
-            <label class="form-label">Password</label>
-            <input 
-            type="password" 
-            class="form-control" 
-            id="password" 
-            name="password"
-            placeholder=""
-            required>
-        </div>
+    </div>
+    </div>
 
-        <div class="mb-3">
-            <label class="form-label">Re-Enter Password</label>
-            <input 
-            type="password" 
-            class="form-control" 
-            id="cpassword" 
-            name="cpassword"
-            placeholder=""
-            required>
-        </div>
+</body>
 
-        <br>
-
-        <div class="mb-3 text-center">
-            <input type="submit" class="btn btn-primary" value="Submit">
-        </div>
-
-        <div class="mb-3 text-center">
-            <label class="form-label">Have Account? <a href="{{url_for('auth.login')}}">Login</a> </label>
-        </div>
-
-    </form>
-</div>    
-
-
-{% endblock %}
+</html>
