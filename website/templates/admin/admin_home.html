@@ -3,6 +3,13 @@
 {% block title %}Admin{% endblock %} 
 
 
+{% block css %} 
+
+<link rel="stylesheet" href="{{ url_for('static', filename='css/cart.css') }}">
+
+{% endblock %} 
+
+
 {% block navigation_bar %}
 
 
@@ -24,7 +31,7 @@
             <ul class="navbar-nav ml-auto">
                 <!--Nav_Home-->
                 <li class="nav-item">
-                    <a class="nav-link active" href="views.admin"><i class='fas fa-bullhorn'></i> Dashboard</a>
+                    <a class="nav-link active" href="views.admin"><i class='fa fa-desktop'></i> Dashboard</a>
                 </li>
 
 
@@ -80,48 +87,112 @@
 
 {% block content%}
 
+
+
+<section class="mt-5 ">
+    <div class="container mt-4 py-1 ">
+
+        <div class="row mt-2 py-1" >
+            <!--Section 1-->
+            
+            <div class="col-lg-8">
     
-<div class="container sigup-container shadow-lg p-3 mb-5 bg-body rounded"  >
+                <!--Add Cart Icon-->
+                <h1 class="text-center">
+                    <img width="500px" src="{{url_for('static', filename = 'other_resources/admin_home.png') }}" alt="">
+                </h1>
+                
+                <h4 class="py-5 text-center">
+                    
+                    <p>""---John Denver Asi---""      
+                   
+                        <a href="https://www.facebook.com/johnasii01"><i style="font-size:30px" class="fa-brands fa-square-facebook"></i></a>
+                        <a href="https://www.instagram.com/john_asii/"><i style="font-size:30px" class="fa-brands fa-instagram"></i></a>
+                        <a href="https://github.com/dambear"><i style="font-size:30px" class="fa-brands fa-square-github"></i></a>
+                    
+                    </p>
+                    <p>""---Jayven Arellano---""       
+                   
+                        <a href="https://www.facebook.com/ArellanoJayven"><i style="font-size:30px" class="fa-brands fa-square-facebook"></i></a>
+                        <a href="https://www.instagram.com/jayven_02/"><i style="font-size:30px" class="fa-brands fa-instagram"></i></a>
+                        <a href="https://github.com/Jayvenarellano"><i style="font-size:30px" class="fa-brands fa-square-github"></i></a>
+                    
+                    </p>
+                    <p>""---Jerald Banalan---""             
+                   
+                        <a href="https://www.facebook.com/Jbanalan10"><i style="font-size:30px" class="fa-brands fa-square-facebook"></i></a>
+                        <a href="https://www.instagram.com/jayven_02/"><i style="font-size:30px" class="fa-brands fa-instagram"></i></a>
+                        <a href="https://github.com/Jayvenarellano"><i style="font-size:30px" class="fa-brands fa-square-github"></i></a>
+                    
+                    </p>
+                    <p>""---Maher Calingansan---""       
+                   
+                        <a href="https://www.facebook.com/mahermiel.calingasan.21"><i style="font-size:30px" class="fa-brands fa-square-facebook"></i></a>
+                        <a href="https://www.instagram.com/mm_calingasan/"><i style="font-size:30px" class="fa-brands fa-instagram"></i></a>
+                        <a href="https://github.com/MaherMiel"><i style="font-size:30px" class="fa-brands fa-square-github"></i></a>
+                    
+                    </p>
+                    <p>""---Mark Meriel Delgado---""      
+                   
+                        <a href="https://www.facebook.com/ArellanoJayven"><i style="font-size:30px" class="fa-brands fa-square-facebook"></i></a>
+                        <a href="https://www.instagram.com/jayven_02/"><i style="font-size:30px" class="fa-brands fa-instagram"></i></a>
+                        <a href="https://github.com/Jayvenarellano"><i style="font-size:30px" class="fa-brands fa-square-github"></i></a>
+                    
+                    </p>
+                </h4>
+
+
+                
+      
+                <div class="row">
+                            
+                      
+                    
+
+                </div>
+            
+
+            </div>
+            <!--Section 1-->
     
-    <form class="form-signup" method="POST">
+            <!--Section 2-->
+            <div class="col-lg-4 py-5 text-center">
+                <h3><i class='fa fa-desktop'></i> Dashboard</h3>
+    
+                <div class="panel panel-primary border border-dark">
+                    <div class="panel-body">
+                        
+                        <button>
+                            Product Table
+                        </button>
 
-        <h2>LOGIN</h2>
 
-        <div class="mb-3">
-            <label class="form-label">Email Address</label>
-            <input 
-            type="email" 
-            class="form-control" 
-            id="email" 
-            name="email"
-            placeholder="Ex. johndoe@example.com"
-            required>
+
+                        <button>
+                            Product Table
+                        </button>
+
+
+                    </div>
+    
+                    
+    
+                    <!--Footer-->
+                    <div class="panel-footer text-center">
+                        <form method="post"> 
+
+                           
+
+                        </form>
+                    </div>
+                    <!--Footer-->
+    
+                </div>
+            </div>
+            <!--Section 2-->
         </div>
 
-        <div class="mb-3">
-            <label class="form-label">Password</label>
-            <input 
-            type="password" 
-            class="form-control" 
-            id="password" 
-            name="password"
-            placeholder=""
-            required>
-        </div>
-
-        
-        <br>
-
-        <div class="mb-3 text-center">
-            <input type="submit" class="btn btn-primary" value="Login">
-        </div>
-
-        <div class="mb-3 text-center">
-            <label class="form-label">Dont Have Account? <a href="#">Sign-up</a> </label>
-        </div>
-
-    </form>
-</div>    
-
+    </div>
+</section>
 
 {% endblock %}

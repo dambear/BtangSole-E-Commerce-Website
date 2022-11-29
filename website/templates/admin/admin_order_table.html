@@ -31,7 +31,7 @@
             <ul class="navbar-nav ml-auto">
                 <!--Nav_Home-->
                 <li class="nav-item">
-                    <a class="nav-link active" href="views.admin"><i class='fa fa-desktop'></i> Dashboard</a>
+                    <a class="nav-link active" href="views.admin"><i class='fas fa-bullhorn'></i> Dashboard</a>
                 </li>
 
 
@@ -40,7 +40,7 @@
                         <a class="nav-link dropdown-toggle" href="" role="button" 
                             data-bs-toggle="dropdown" aria-expanded="false">
 
-                            <i class="fas fa-socks"></i> Product
+                            <i class='fas fa-shopping-basket'></i> Product
 
                         </a>
                         <ul class="dropdown-menu dropdown-menu-dark">
@@ -92,43 +92,34 @@
     <div class="container product-container shadow-lg p-3 mb-5 bg-body rounded"  >
         
         <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-            <h2><i class="fas fa-socks"></i> All Products</h2>
-            <a href="/admin/products/new" class="btn btn-outline-dark">
-                Add New Product
-            </a>
+            <h1 class="h2"><i class="fa fa-book"></i> All Orders</h1>
         </div>
         
         <table class="text-center table table table-bordered rounded border-dark">
             <thead>
                 <tr>
                     <th>#</th>
+                    <th>Customer Fullname</th>
+                    <th>Mobile #</th>
+                    <th>Address</th>
                     <th>Product Name</th>
-                    <th>Product Image</th>
-                    <th>Price</th>
-                    <th>Category</th>
-                    <th>Stock</th>
-                    <th>Actions</th>
+                    <th>Quantity</th>
+                    <th>Total Price</th>
+                    <th>Payment Method</th>
                 </tr>
             </thead>
         
             <tbody class="table-group-divider">
-                {% for product in products %}
+                {% for order in orders %}
                 <tr>
-                    <td>{{product.id}}</td>
-                    <td><a class="link-light">{{ product.product_name }}</a></td>
-                    <td><img src="/static/uploads/{{ product.image1 }}" width="100px" height="100px"></td>
-                    <td>₱{{ product.product_price }}</td>
-                    <td>{{ product.product_category }}</td>
-                    <td>{{ product.product_quantity }}</td>
-                    <td>
-                        <a href="/products/{{ product.id }}" target="_blank" class="btn btn-sm btn-outline-dark"><i
-                                class="fas fa-up-right-from-square"></i></a>
-                        <a href="/admin/products/{{ product.id }}/edit" class="btn btn-sm btn-outline-warning"><i
-                                class="fas fa-pen"></i></a>
-                        <a class="btn btn-sm btn-outline-danger" onclick="delProduct('{{ product.id }}')">
-                            <i class="fas fa-trash"></i>
-                        </a>
-                    </td>
+                    <td>{{order.id}}</td>
+                    <td>{{ order.fullname }}</td>
+                    <td>{{ order.mobilenum }}</td>
+                    <td>{{ order.address }}</td>
+                    <td>{{ order.product_name }}</td>
+                    <td>{{ order.quantity }}</td>
+                    <td>₱{{ order.total_price }}</td>
+                    <td>COD</td>
                 </tr>
                 {% endfor %}
             </tbody>

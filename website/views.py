@@ -239,8 +239,13 @@ def order_checkout():
 @views.route('/admin')
 @login_required
 def admin():
-    products = Product.query.all()
-    return render_template("admin/admin_product_table.html", products=products)
+    return render_template("admin/admin_home.html")
+
+@views.route('/admin/order-table')
+@login_required
+def admin_orders():
+    orders = Order.query.all()
+    return render_template("admin/admin_order_table.html", orders=orders)
 
 
 
