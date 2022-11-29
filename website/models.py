@@ -51,7 +51,7 @@ class Cart(db.Model):
 class Order(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     fullname = db.Column(db.String(150))
-    mobilenum = db.Column(db.Integer)
+    mobilenum = db.Column(db.String(11))
     address = db.Column(db.String(700))
     product_id = db.Column(db.Integer, db.ForeignKey('product.id'))
     product_name = db.Column(db.String(150))
