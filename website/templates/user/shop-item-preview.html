@@ -51,7 +51,7 @@
                 {% if current_user.is_authenticated %}
 
                 <li class="nav-item">
-                    <a style="color: black;" href="#"><i class="fa-solid fa-cart-shopping"></i></a>
+                    <a style="color: black;" href="{{url_for('views.cart')}}"><i class="fa-solid fa-cart-shopping"></i></a>
                 </li>
 
                 <ul class="navbar-nav">

@@ -131,9 +131,9 @@
                                 <td>{{cart.id}}</td>
                                 <td><a class="link-light">{{ cart.product_name }}</a></td>
                                 <td><img src="/static/uploads/{{ cart.image1 }}" width="100px" height="100px"></td>
-                                <td>₱{{ cart.product_price }}
+                                <td>
 
-                                    <div class="one-item-total">{{ cart.product_price }}</div>
+                                    <div class="one-item-total">₱{{ cart.product_price }}</div>
 
                                 </td>
                                 
@@ -215,7 +215,7 @@
 
                             {% if cart_total <= 0 %}
                          
-                            <a href="#" class="btn btn-link btn-sm ">
+                            <a href="{{url_for('views.shop')}}" class="btn btn-link btn-sm ">
                             Continue Shopping
                             </a>
 
@@ -225,7 +225,7 @@
                                 Checkout 
                             </button>
                         
-                            <a href="#" class="btn btn-link btn-sm ">
+                            <a href="{{url_for('views.shop')}}" class="btn btn-link btn-sm ">
                             Continue Shopping
                             </a>
 
