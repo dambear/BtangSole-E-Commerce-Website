@@ -31,19 +31,19 @@
             <ul class="navbar-nav ml-auto">
                 <!--Nav_Home-->
                 <li class="nav-item">
-                    <a class="nav-link active" href="views.admin"><i class='fa fa-desktop'></i> Dashboard</a>
+                    <a class="nav-link" href="{{url_for('views.admin')}}"><i class='fa fa-desktop'></i> Dashboard</a>
                 </li>
 
 
                 <ul class="navbar-nav">
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="" role="button" 
+                        <a class="nav-link dropdown-toggle active" href="" role="button" 
                             data-bs-toggle="dropdown" aria-expanded="false">
 
                             <i class="fas fa-socks"></i> Product
 
                         </a>
-                        <ul class="dropdown-menu dropdown-menu-dark">
+                        <ul class="dropdown-menu dropdown-menu-dark ">
                             <li><a class="dropdown-item" href="product-table">Product Table</a></li>
                             <li><a class="dropdown-item" href="products/new/">Add New Product</a></li>
                         </ul>
@@ -53,7 +53,7 @@
 
                 <!--Nav_Shop-->
                 <li class="nav-item">
-                    <a class="nav-link" href="" ><i class='fas fa-shopping-cart'></i> Order</a>
+                    <a class="nav-link" href="{{url_for('views.admin_orders')}}" ><i class='fas fa-shopping-cart'></i> Order</a>
                 </li>
 
 

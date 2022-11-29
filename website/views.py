@@ -332,7 +332,7 @@ def update_product(id):
 
 @views.route('admin/products/new/', methods=['GET', 'POST'])
 @login_required
-def new_product():
+def add_product():
     
     if request.method == 'POST':
         product_name = request.form.get('product_name')
@@ -375,6 +375,6 @@ def new_product():
         return redirect(url_for('views.update_product', id=product.id))
 
     
-    return render_template("admin/add_product.html")
+    return render_template("admin/admin_add_product.html")
 
 
