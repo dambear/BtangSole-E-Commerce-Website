@@ -39,19 +39,19 @@
             <ul class="navbar-nav ml-auto">
                 <!--Nav_Home-->
                 <li class="nav-item">
-                    <a class="nav-link active" href="{{url_for('views.home')}}">Home</a>
+                    <a class="nav-link" href="{{url_for('views.home')}}">Home</a>
                 </li>
 
                 <!--Nav_Shop-->
                 <li class="nav-item">
-                    <a class="nav-link" href="{{url_for('views.shop')}}" >Shop</a>
+                    <a class="nav-link active" href="{{url_for('views.shop')}}" >Shop</a>
                 </li>
 
 
                 {% if current_user.is_authenticated %}
 
                 <li class="nav-item">
-                    <a style="color: black;" href="#"><i class="fa-solid fa-cart-shopping"></i></a>
+                    <a style="color: black;" href="{{url_for('views.cart')}}"><i class="fa-solid fa-cart-shopping"></i></a>
                 </li>
 
                 <ul class="navbar-nav">
