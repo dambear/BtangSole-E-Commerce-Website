@@ -40,7 +40,7 @@
                         <a class="nav-link dropdown-toggle" href="#" role="button" 
                             data-bs-toggle="dropdown" aria-expanded="false">
 
-                            <i class='fas fa-shopping-basket'></i> Product
+                            <i class="fas fa-socks"></i> Product
 
                         </a>
                         <ul class="dropdown-menu dropdown-menu-dark">
@@ -161,22 +161,29 @@
     
                     </br>
                     <h4>Product Table</h4>
-                        
-                    <button>
-                        Go to Product Table
-                    </button>
 
+                    <a href="{{url_for('views.admin_products')}}">
+
+                        <button class="table-button">
+                            Go to Product Table
+                        </button>
+
+                    </a>
+                        
+                    
                     </br>    
                     </br>   
                 
         
                     <h4>Order Table</h4>
 
-                    <button>
-                        Go to Order Table
-                    </button>
+                    <a href="{{url_for('views.admin_orders')}}">
 
+                        <button class="table-button">
+                            Go to Order Table
+                        </button>
 
+                    </a>
                     
     
                     

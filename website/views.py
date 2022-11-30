@@ -25,7 +25,8 @@ app.config['MAX_CONTENT_LENGTH'] = 16 * 1024 * 1024
 @views.route('/home')
 @views.route('/')
 def home():
-    products = Product.query.all()
+    category="Featured"
+    products = Product.query.filter_by(product_category=category)
     return render_template("home.html", products=products)
 
 
@@ -194,7 +195,7 @@ def order_checkout():
         street_text = request.form.get('street_text')
         paymentmethod = request.form.get('paymentmethod')
         
-        address = province_text + " " + city_text + " " + barangay_text + " " + street_text
+        address = province_text + ", " + city_text + ", " + barangay_text + ", " + street_text
         
         fullname = fname + " " + lname
         
@@ -295,31 +296,52 @@ def update_product(id):
         image3=request.files.get('image3')
         image4=request.files.get('image4')
         
-        imagename1 = secure_filename(image1.filename)
-        imagename2 = secure_filename(image2.filename)
-        imagename3 = secure_filename(image3.filename)
-        imagename4 = secure_filename(image4.filename)
+
         
-        
-  
-            
-            
             
         base_path = os.path.abspath(os.path.dirname(__file__))
         upload_path = os.path.join(base_path, app.config['UPLOAD_FOLDER'])
-        image1.save(os.path.join(upload_path, imagename1))
-        image2.save(os.path.join(upload_path, imagename2))
-        image3.save(os.path.join(upload_path, imagename3))
-        image4.save(os.path.join(upload_path, imagename4))
+        
+        
+        
+        if request.files['image1'].filename == '':
+            product.image1 = product.image1 
+            
+        else:
+            imagename1 = secure_filename(image1.filename)
+            image1.save(os.path.join(upload_path, imagename1))
+            product.image1 = imagename1
+            
+        if request.files['image2'].filename == '':
+            product.image2 =  product.image2 
+            
+        else:
+            imagename2 = secure_filename(image2.filename)
+            image2.save(os.path.join(upload_path, imagename2))
+            product.image2 = imagename2
+            
+            
+        if request.files['image3'].filename == '':
+            product.image3 = product.image3 
+            
+            
+        else:
+            imagename3 = secure_filename(image3.filename)
+            image3.save(os.path.join(upload_path, imagename3))
+            product.image3 = imagename3
+            
+            
+        if request.files['image4'].filename == '':
+            product.image4 = product.image4
+            
+        else:
+            imagename4 = secure_filename(image4.filename)
+            image4.save(os.path.join(upload_path, imagename4))
+            product.image4 = imagename4
             
 
         
-        product.image1 = imagename1
-        product.image2 = imagename2
-        product.image1 = imagename3
-        product.image2 = imagename4
-        
-        
+ 
         db.session.commit()
         
 
@@ -347,18 +369,42 @@ def add_product():
         image3=request.files.get('image3')
         image4=request.files.get('image4')
         
-        imagename1 = secure_filename(image1.filename)
-        imagename2 = secure_filename(image2.filename)
-        imagename3 = secure_filename(image3.filename)
-        imagename4 = secure_filename(image4.filename)
+        
         
         base_path = os.path.abspath(os.path.dirname(__file__))
         upload_path = os.path.join(base_path, app.config['UPLOAD_FOLDER'])
-        image1.save(os.path.join(upload_path, imagename1))
-        image2.save(os.path.join(upload_path, imagename2))
-        image3.save(os.path.join(upload_path, imagename3))
-        image4.save(os.path.join(upload_path, imagename4))
-        
+       
+       
+        if request.files['image1'].filename == '':
+            flash('Image 1 cannot be empty!', category='success')
+            
+        else:
+            imagename1 = secure_filename(image1.filename)
+            image1.save(os.path.join(upload_path, imagename1))
+            
+        if request.files['image2'].filename == '':
+            imagename2 = "ifnoimageenteredshowthis.jpg"
+            
+        else:
+            imagename2 = secure_filename(image2.filename)
+            image2.save(os.path.join(upload_path, imagename2))
+            
+            
+        if request.files['image3'].filename == '':
+            imagename3 = "ifnoimageenteredshowthis.jpg"
+            
+        else:
+            imagename3 = secure_filename(image3.filename)
+            image3.save(os.path.join(upload_path, imagename3))
+            
+            
+        if request.files['image4'].filename == '':
+            imagename4 = "ifnoimageenteredshowthis.jpg"
+            
+        else:
+            imagename4 = secure_filename(image4.filename)
+            image4.save(os.path.join(upload_path, imagename4))
+            
         
         
 

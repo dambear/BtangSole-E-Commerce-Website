@@ -17,11 +17,17 @@ def login():
         user = User.query.filter_by(email=email).first()
         if user:
             if check_password_hash(user.password, password):
+                login_user(user)
                 
-                    
-                flash('Logged in successfully!', category='success')
-                login_user(user, remember=remember)
-                return redirect(url_for('views.home'))
+                if current_user.is_admin:
+                    login_user(user, remember=remember)
+                    flash('Logged in successfully!', category='success')
+                    return redirect(url_for('views.admin'))
+                
+                else:    
+                    flash('Logged in successfully!', category='success')
+                    login_user(user, remember=remember)
+                    return redirect(url_for('views.home'))
     
             else:
                 flash('Incorrect password, try again.', category='error')
@@ -71,6 +77,7 @@ def sign_up():
             db.session.commit()
 
             flash('Account created successfully!', category='success')
+            return redirect(url_for('auth.login'))
             
 
     return render_template("sign-up.html")

@@ -5,11 +5,11 @@
 
 
 
-button{
+.table-button{
     width: 300px;
 }
 
-button:hover{
+.table-button :hover{
     background-color: #fb774b;
 }
 
