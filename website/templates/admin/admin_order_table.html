@@ -31,7 +31,7 @@
             <ul class="navbar-nav ml-auto">
                 <!--Nav_Home-->
                 <li class="nav-item">
-                    <a class="nav-link active" href="views.admin"><i class='fas fa-bullhorn'></i> Dashboard</a>
+                    <a class="nav-link " href="{{url_for('views.admin')}}"><i class='fas fa-bullhorn'></i> Dashboard</a>
                 </li>
 
 
@@ -44,8 +44,8 @@
 
                         </a>
                         <ul class="dropdown-menu dropdown-menu-dark">
-                            <li><a class="dropdown-item" href="product-table">Product Table</a></li>
-                            <li><a class="dropdown-item" href="products/new/">Add New Product</a></li>
+                            <li><a class="dropdown-item" href="{{url_for('views.admin_products')}}">Product Table</a></li>
+                            <li><a class="dropdown-item" href="{{url_for('views.add_product')}}">Add New Product</a></li>
                         </ul>
                         
                     </li>
@@ -53,7 +53,7 @@
 
                 <!--Nav_Shop-->
                 <li class="nav-item">
-                    <a class="nav-link" href="" ><i class='fas fa-shopping-cart'></i> Order</a>
+                    <a class="nav-link active" href="#" ><i class='fas fa-shopping-cart'></i> Order</a>
                 </li>
 
 
