@@ -293,7 +293,7 @@ def update_product(id):
         product.product_color = request.form.get('product_color')
         product.product_price = request.form.get('product_price')
         product.product_quantity = request.form.get('product_quantity')
-        product.product_category = request.form.get('product_category')
+        product.product_category = request.form.get('category')
         image3=request.files.get('image3')
         image4=request.files.get('image4')
         
