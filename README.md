@@ -18,6 +18,8 @@
 
 ### Requirements
 
+- Python 3.10+ [here](https://www.python.org/downloads/).
+
 #### 1. Git
 
 - Download git [here](https://git-scm.com/downloads).
