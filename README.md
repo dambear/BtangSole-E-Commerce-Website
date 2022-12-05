@@ -20,6 +20,10 @@
 
 - Python 3.10+ [here](https://www.python.org/downloads/).
 
+#### Admin Account
+- E: admin@admin.com
+- P: admin123
+
 #### 1. Git
 
 - Download git [here](https://git-scm.com/downloads).
